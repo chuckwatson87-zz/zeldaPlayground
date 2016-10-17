@@ -220,6 +220,67 @@ define('game/states/Boot',["exports"], function (exports) {
 
 	exports.default = Boot;
 });
+define('game/states/Main',['exports'], function (exports) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) {
+            throw new TypeError("Cannot call a class as a function");
+        }
+    }
+
+    function _possibleConstructorReturn(self, call) {
+        if (!self) {
+            throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+        }
+
+        return call && (typeof call === "object" || typeof call === "function") ? call : self;
+    }
+
+    function _inherits(subClass, superClass) {
+        if (typeof superClass !== "function" && superClass !== null) {
+            throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+        }
+
+        subClass.prototype = Object.create(superClass && superClass.prototype, {
+            constructor: {
+                value: subClass,
+                enumerable: false,
+                writable: true,
+                configurable: true
+            }
+        });
+        if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+    }
+
+    var Main = function (_Phaser$State) {
+        _inherits(Main, _Phaser$State);
+
+        function Main() {
+            _classCallCheck(this, Main);
+
+            return _possibleConstructorReturn(this, _Phaser$State.apply(this, arguments));
+        }
+
+        Main.prototype.create = function create() {
+            var link = this.game.add.sprite(10, 10, 'link');
+
+            link.animations.add('walk', ['link', 'link1']);
+
+            link.animations.play('walk', 1, true);
+        };
+
+        Main.prototype.update = function update() {};
+
+        return Main;
+    }(Phaser.State);
+
+    exports.default = Main;
+});
 define('game/states/Preload',['exports'], function (exports) {
   'use strict';
 
@@ -298,122 +359,7 @@ define('game/world/world',['exports'], function (exports) {
     console.log('world loaded');
   };
 });
-define('game/states/Main',['exports'], function (exports) {
-    'use strict';
-
-    Object.defineProperty(exports, "__esModule", {
-        value: true
-    });
-
-    function _classCallCheck(instance, Constructor) {
-        if (!(instance instanceof Constructor)) {
-            throw new TypeError("Cannot call a class as a function");
-        }
-    }
-
-    function _possibleConstructorReturn(self, call) {
-        if (!self) {
-            throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-        }
-
-        return call && (typeof call === "object" || typeof call === "function") ? call : self;
-    }
-
-    function _inherits(subClass, superClass) {
-        if (typeof superClass !== "function" && superClass !== null) {
-            throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-        }
-
-        subClass.prototype = Object.create(superClass && superClass.prototype, {
-            constructor: {
-                value: subClass,
-                enumerable: false,
-                writable: true,
-                configurable: true
-            }
-        });
-        if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-    }
-
-    var Main = function (_Phaser$State) {
-        _inherits(Main, _Phaser$State);
-
-        function Main() {
-            _classCallCheck(this, Main);
-
-            return _possibleConstructorReturn(this, _Phaser$State.apply(this, arguments));
-        }
-
-        Main.prototype.create = function create() {
-            var link = this.game.add.sprite(10, 10, 'link');
-            link.frameName = 'link1';
-        };
-
-        Main.prototype.update = function update() {};
-
-        return Main;
-    }(Phaser.State);
-
-    exports.default = Main;
-});
-define('game/states/GameTitle',["exports"], function (exports) {
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	function _possibleConstructorReturn(self, call) {
-		if (!self) {
-			throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-		}
-
-		return call && (typeof call === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-		if (typeof superClass !== "function" && superClass !== null) {
-			throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-		}
-
-		subClass.prototype = Object.create(superClass && superClass.prototype, {
-			constructor: {
-				value: subClass,
-				enumerable: false,
-				writable: true,
-				configurable: true
-			}
-		});
-		if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var GameTitle = function (_Phaser$State) {
-		_inherits(GameTitle, _Phaser$State);
-
-		function GameTitle() {
-			_classCallCheck(this, GameTitle);
-
-			return _possibleConstructorReturn(this, _Phaser$State.apply(this, arguments));
-		}
-
-		GameTitle.prototype.create = function create() {};
-
-		GameTitle.prototype.startGame = function startGame() {
-			this.game.state.start("Main");
-		};
-
-		return GameTitle;
-	}(Phaser.State);
-
-	exports.default = GameTitle;
-});
-define('text!app.html', ['module'], function(module) { module.exports = "<template>\n  <require from=\"./app.css\"></require>\n  <require from=\"./game/game\"></require>\n  <game></game>\n</template>\n"; });
+define('text!app.html', ['module'], function(module) { module.exports = "<template>\r\n  <require from=\"./app.css\"></require>\r\n  <require from=\"./game/game\"></require>\r\n  <game></game>\r\n</template>\r\n"; });
 define('text!game/game.html', ['module'], function(module) { module.exports = "<template>\r\n  <require from=\"./game.css\"></require>\r\n  <require from=\"./hud/hud\"></require>\r\n  <require from=\"./world/world\"></require>\r\n\r\n  <hud></hud>\r\n  <world id=\"game-container\"></world>\r\n</template>\r\n"; });
 define('text!game/hud/hud.html', ['module'], function(module) { module.exports = "<template>\r\n  <require from=\"./hud.css\"></require>\r\n        Hud\r\n</template>\r\n"; });
 define('text!game/world/world.html', ['module'], function(module) { module.exports = "<template>\r\n  <require from=\"./world.css\"></require>\r\n</template>\r\n"; });
