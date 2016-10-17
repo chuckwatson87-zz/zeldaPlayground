@@ -2,9 +2,9 @@
     font-family: "zelda";
     src: url("scripts/resources/fonts/retganon.woff2");
 }
-
-
-.hud-container {
+hud {
   color:white;
   font-family: zelda;
+  height: 100px;
+  flex: 0 1 auto;
 }

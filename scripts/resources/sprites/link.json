@@ -1,0 +1,18 @@
+{
+  "frames": {
+    "link": {
+      "frame": {"x":0,"y":0,"w":20,"h":20},
+	     "rotated": false,
+	     "trimmed": true,
+	     "spriteSourceSize": {"x":0,"y":0,"w":20,"h":20},
+	     "sourceSize": {"w":20,"h":20}
+    },
+    "link1": {
+      "frame": {"x":20,"y":0,"w":25,"h":20},
+       "rotated": false,
+       "trimmed": true,
+       "spriteSourceSize": {"x":0,"y":0,"w":20,"h":20},
+       "sourceSize": {"w":20,"h":20}
+    }
+  }
+}
