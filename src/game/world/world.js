@@ -1,15 +1,13 @@
+import player from './player/player'
+
 export class world {
     constructor() {
       console.log('world loaded');
-
-      this.init();
     }
 
-    init() {
-      console.log(this.mainWorld);
-    }
 
     attached() {
-      console.log(this.mainWorld)
+      let p = new player();
+      p.addSprite(this.mainWorld);
     }
 }
