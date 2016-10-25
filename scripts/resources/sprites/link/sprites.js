@@ -1,4 +1,4 @@
-export let spriteAtlas = {
+export default spriteAtlas = {
 "frames": {
 	"link_01": {
 		"frame": {"x":0, "y":33, "w":15, "h":16},

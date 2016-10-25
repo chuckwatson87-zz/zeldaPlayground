@@ -1,4 +1,4 @@
-//import spriteAtlas from './sprites.js';
+import {spriteAtlas} from './sprites';
 
 
 export default class player {
@@ -8,15 +8,17 @@ export default class player {
   }
 
   addSprite(canvas) {
-    var link = new Image();
-    link.src = 'sprites.png'
-    //console.log(spriteAtlas);
-    var linkSprite = this.sprite({
+    let link = new Image();
+    link.src = 'scripts/resources/sprites/link/sprites.png'
+    console.log(spriteAtlas);
+    let linkSprite = this.sprite({
         context: canvas.getContext("2d"),
-        width: 20,
-        height: 20,
+        atlas: spriteAtlas,
         image: link,
     });
+
+    linkSprite.render('link_01');
+
   }
 
   addAnimations() {
@@ -27,12 +29,18 @@ export default class player {
   }
 
   sprite(options) {
-      return {
+      let s = {
         context: options.context,
-        width: options.width,
-        height: options.height,
+        atlas: options.atlas,
         image: options.image
       }
+
+      s.render = (frameName) => {
+        let frame = s.atlas.frames[frameName];
+        s.context.drawImage(s.image, frame.x, frame.y, frame.w, frame.h, 0, 0, frame.w, frame.h);
+      }
+
+      return s;
   }
 
 }
