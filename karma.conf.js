@@ -4,6 +4,7 @@ const project = require('./aurelia_project/aurelia.json');
 
 let testSrc = [
   { pattern: project.unitTestRunner.source, included: false },
+  { pattern: 'test\\**\\*.*', included: false},
   'test/aurelia-karma.js'
 ];
 
@@ -20,7 +21,8 @@ module.exports = function(config) {
     files: files,
     exclude: [],
     preprocessors: {
-      [project.unitTestRunner.source]: [project.transpiler.id]
+      [project.unitTestRunner.source]: [project.transpiler.id],
+      ['test\\**\\*.*']: [project.transpiler.id]
     },
     'babelPreprocessor': { options: project.transpiler.options },
     reporters: ['progress'],
