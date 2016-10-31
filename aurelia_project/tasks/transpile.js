@@ -26,6 +26,17 @@ function buildJavaScript() {
     .pipe(build.bundle());
 }
 
+function buildJavaScriptForTestCoverage() {
+  let coverageOptions = project.transpiler.options;
+  coverageOptions.plugins.push('istanbul');
+  return gulp.src(project.transpiler.source)
+  .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
+  .pipe(changedInPlace({firstPass:true}))
+  .pipe(sourcemaps.init())
+  .pipe(babel(coverageOptions))
+  .pipe(build.bundle());
+}
+
 export default gulp.series(
   configureEnvironment,
   buildJavaScript
