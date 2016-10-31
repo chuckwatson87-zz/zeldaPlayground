@@ -7,7 +7,8 @@ export class world {
 
 
     attached() {
-      let p = new player();
-      p.addSprite(this.mainWorld);
+      let p = new player(this.mainWorld);
+      p.init();
+      //p.addSprite(this.mainWorld);
     }
 }

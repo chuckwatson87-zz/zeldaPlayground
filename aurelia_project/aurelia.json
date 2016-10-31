@@ -83,7 +83,7 @@
       {
         "name": "app-bundle.js",
         "source": [
-          "[**/*.js]",
+          "[**/!(*test).js]",
           "**/*.{css,html}"
         ]
       },
