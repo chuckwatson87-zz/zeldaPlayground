@@ -52,4 +52,36 @@ describe('sprite', () => {
 
         });
 
+        describe('addAnimations method', () => {
+            beforeEach(() => {
+              _sprite.addAnimations('animation_1', ['01', '02']);
+              _sprite.addAnimations('animation_2', ['03', '04'], 55);
+            });
+            it('should add animations to sprite', () => {
+                expect(_sprite.animations['animation_1'].frames).toEqual(['01', '02']);
+                expect(_sprite.animations['animation_1'].fps).toBe(60);
+
+                expect(_sprite.animations['animation_2'].frames).toEqual(['03', '04']);
+                expect(_sprite.animations['animation_2'].fps).toBe(55);
+            });
+
+            describe('run method', () => {
+                it('should set running to true', () => {
+                  expect(_sprite.animations['animation_1'].running).toBe(false);
+                  _sprite.animations['animation_1'].run();
+                  expect(_sprite.animations['animation_1'].running).toBe(true);
+                });
+
+            });
+
+            describe('stop method', () => {
+                it('should set running to true', () => {
+                  _sprite.animations['animation_1'].running = true
+                  expect(_sprite.animations['animation_1'].running).toBe(true);
+                  _sprite.animations['animation_1'].stop();
+                  expect(_sprite.animations['animation_1'].running).toBe(false);
+                });
+
+            });
+        });
 });
