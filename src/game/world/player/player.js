@@ -1,5 +1,5 @@
 import {spriteAtlas} from './sprites';
-import sprite from 'engine/components/sprite';
+import sprite from 'engine/components/sprites/sprite';
 
 
 export default class player {

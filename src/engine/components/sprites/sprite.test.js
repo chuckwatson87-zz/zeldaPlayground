@@ -14,7 +14,7 @@ describe('sprite', () => {
           expect(_sprite).toBeDefined();
         });
 
-        describe('addToWorld method', () => {
+        describe('loadSprite method', () => {
             beforeEach(() => {
                 spyOn(_sprite, 'render');
             });
