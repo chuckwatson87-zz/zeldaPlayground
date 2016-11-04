@@ -1,5 +1,5 @@
 import engine from './engine';
-import sprite from 'spries/sprites';
+import sprite from 'engine/components/sprites/sprite';
 import {spriteAtlas} from '../../test/unit/resources/images/sprites.js';
 
 describe('engineVM', () => {
