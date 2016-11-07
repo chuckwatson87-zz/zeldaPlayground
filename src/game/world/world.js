@@ -1,14 +1,19 @@
-import player from './player/player'
+import player from './player/player';
+import engine from 'engine/engine';
+
 
 export class world {
-    constructor() {
-      console.log('world loaded');
+    bind() {
+
     }
 
-
     attached() {
-      let p = new player(this.mainWorld);
-      p.init();
-      //p.addSprite(this.mainWorld);
+      // this.engine = new engine(this.mainWorld);
+      // this.player = new player(this.engine);
+      // this.initializePlayer(this.player);
+    }
+
+    initializePlayer(player) {
+      return player.init('scripts/resources/sprites/link/sprites.png');
     }
 }

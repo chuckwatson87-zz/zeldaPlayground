@@ -3,14 +3,18 @@ import sprite from 'engine/components/sprites/sprite';
 
 
 export default class player {
-  constructor(canvas) {
-    this.canvas = canvas;
+  constructor(engine) {
+    this.engine = engine;
+    this.spriteAtlas = spriteAtlas;
   }
 
-  init() {
-    let spritePath = 'scripts/resources/sprites/link/sprites.png'
-    let player = sprite.create(this.canvas, spritePath, spriteAtlas);
-    player.loadSprite(true, 25, 25, 'link_02');
+  init(spritePath) {
+    let sprite = this.engine.addSprite('link', spritePath, this.spriteAtlas);
+    return this.loadSprite(sprite);
+  }
+
+  loadSprite(sprite) {
+    return sprite.loadSprite(true, 25, 25, 'link_05');
   }
 
 }

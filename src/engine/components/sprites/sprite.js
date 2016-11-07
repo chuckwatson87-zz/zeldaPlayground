@@ -1,7 +1,8 @@
 let sprite = {
-  create(canvas, imagePath, atlas) {
+  create(context, name, imagePath, atlas) {
       let s = {
-        context: canvas.getContext("2d"),
+        context: context,
+        name: name,
         imagePath: imagePath,
         atlas: atlas
       };

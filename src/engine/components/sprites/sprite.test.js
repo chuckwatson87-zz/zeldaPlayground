@@ -3,10 +3,11 @@ import {spriteAtlas} from '../../../../test/unit/resources/images/sprites.js';
 
 describe('sprite', () => {
     let canvas = document.createElement('canvas'),
+        context = canvas.getContext("2d"),
         _sprite;
 
         beforeEach(() => {
-            _sprite = sprite.create(canvas, 'base/test/unit/resources/images/sprites.png', spriteAtlas);
+            _sprite = sprite.create(context,'name', 'base/test/unit/resources/images/sprites.png', spriteAtlas);
 
         });
 
