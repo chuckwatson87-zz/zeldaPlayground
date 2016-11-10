@@ -5,7 +5,7 @@ import player from './player/player';
 import {StageComponent} from 'aurelia-testing';
 
 
-fdescribe('worldVM', () => {
+xdescribe('worldVM', () => {
     let _worldComponent; //canvas = document.createElement('canvas');
     beforeEach(() => {
         _worldComponent = StageComponent
