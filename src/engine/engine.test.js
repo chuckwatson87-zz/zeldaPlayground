@@ -1,4 +1,4 @@
-import engine from './engine';
+import engine from 'engine/engine';
 import sprite from 'engine/components/sprites/sprite';
 
 describe('engineVM', () => {

@@ -39,8 +39,9 @@ function mergeObject(original, toMerge) {
 if (tdd) {
   testSrc = [
     { pattern: 'test/unit/setup.js', included: false },
-    { pattern: 'test/unit/resources/**/*.svg', included: false, watch: false },
+    { pattern: 'test/unit/resources/**/*.*', included: false, watch: false },
     { pattern: project.unitTestRunner.source, included: false },
+    { pattern: 'scripts/text.js', included: false },
     'test/aurelia-karma.js'
   ];
 
@@ -56,6 +57,7 @@ if (tdd) {
         //[project.unitTestRunner.source]: [project.transpiler.id], //Test files are already under the src folder
         [project.transpiler.source]: [project.transpiler.id], //Since we are now including source code, we need babel to transpile our source files on the fly
         ['test/unit/setup.js']: [project.transpiler.id],
+        ['test/unit/resources/images/sprites.js']: [project.transpiler.id],
         ['test/data/**/*.js']: [project.transpiler.id]
     };
 

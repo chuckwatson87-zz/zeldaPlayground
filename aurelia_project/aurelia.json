@@ -37,7 +37,11 @@
   "unitTestRunner": {
     "id": "karma",
     "displayName": "Karma",
-    "source": "src\\**\\*.test.js"
+    "source": "src\\**\\*.test.js",
+    "babelOptions": {
+      "presets": [ ],
+      "plugins": []
+    }
   },
   "paths": {
     "root": "src",

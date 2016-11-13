@@ -1,4 +1,4 @@
-import player from './player';
+import player from 'game/world/player/player';
 import engine from 'engine/engine';
 
 describe('playerVM', () => {
