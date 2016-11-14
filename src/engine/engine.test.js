@@ -1,7 +1,7 @@
 import engine from 'engine/engine';
 import sprite from 'engine/components/sprites/sprite';
 
-describe('engineVM', () => {
+fdescribe('engineVM', () => {
   let canvas = document.createElement('canvas'),
       _engineVM
     beforeEach(() => {
@@ -24,6 +24,18 @@ describe('engineVM', () => {
             expect(_engineVM.spritesCollection[0].name).toBe('sprite_01');
             expect(_engineVM.spritesCollection[1].name).toBe('sprite_02');
         });
+    });
+
+    describe('addCanvas method', () => {
+      let engineVMNoCanvas;
+      beforeEach(() => {
+          engineVMNoCanvas = new engine();
+      });
+      it('should add context based on canvas passed in', () => {
+        expect(engineVMNoCanvas.context).toBeNull();
+        engineVMNoCanvas.addContext(canvas);
+        expect(engineVMNoCanvas.context).toEqual(canvas.getContext('2d'));
+      })
     });
 
 });

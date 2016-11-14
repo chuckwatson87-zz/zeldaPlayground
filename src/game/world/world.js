@@ -3,6 +3,7 @@ import engine from 'engine/engine';
 
 
 export class world {
+    //@bindable engine
     bind() {
 
     }

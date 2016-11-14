@@ -6,13 +6,14 @@ import {bootstrap} from 'aurelia-bootstrapper';
 import {StageComponent} from 'aurelia-testing';
 
 
-fdescribe('worldVM', () => {
+xdescribe('worldVM', () => {
     let _worldComponent; //canvas = document.createElement('canvas');
+    //engine: new engine()
     beforeEach(() => {
-      define('text!game/world/world.css', ['module'], function(module) { module.exports = "world {\n  flex: 1;\n  color: white; }\n  world canvas {\n    background-color: white; }\n"; });
+      define('text!game/world/world.css', ['module'], function(module) { module.exports = 'world {\n  flex: 1;\n  color: white; }\n  world canvas {\n    background-color: white; }\n'; });
         _worldComponent = StageComponent
             .withResources('game/world/world')
-            .inView('<world engine.bind="engine"></world>')
+            .inView('<world engine.bind=\'engine\'></world>')
             .boundTo({ engine: new engine() });
         //_worldVM.mainWorld = canvas;
     });
@@ -20,17 +21,16 @@ fdescribe('worldVM', () => {
     _worldComponent .dispose();
   });
 
-    it('can render the component', done => {
-
-      _worldComponent.create(bootstrap)
-     .then(() => {
-      //  const canvasElement = document.querySelector('canvas');
-      //  expect(canvasElement.width).not.toBe(300);
-      expect(true).toBeTrue();
-      done();
-     })
-    //.then(done);
-  });
+  it('can render the component', done => {
+    _worldComponent.create(bootstrap)
+   .then(() => {
+     const canvasElement = document.querySelector('canvas');
+     expect(canvasElement.width).toBe(300);
+    //expect(true).toBeTrue();
+    //done();
+   })
+  .then(done);
+});
 
     xdescribe('attached method', () => {
         beforeEach(() => {
