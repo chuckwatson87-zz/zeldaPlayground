@@ -1,5 +1,5 @@
 import sprite from 'engine/components/sprites/sprite';
-import {spriteAtlas} from '../../../../test/unit/resources/images/sprites.js';
+import {spriteAtlas} from '../../../test/unit/resources/images/sprites.js';
 
 describe('sprite', () => {
     let canvas = document.createElement('canvas'),

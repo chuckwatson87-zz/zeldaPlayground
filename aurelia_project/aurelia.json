@@ -1,5 +1,5 @@
 {
-  "name": "zeldaPlayground",
+  "name": "zeldaPlayground_new",
   "type": "project:application",
   "platform": {
     "id": "web",
@@ -16,40 +16,37 @@
         "transform-es2015-modules-amd"
       ]
     },
-    "source": "src\\**\\*.js"
+    "source": "src/**/*.js"
   },
   "markupProcessor": {
     "id": "none",
     "displayName": "None",
     "fileExtension": ".html",
-    "source": "src\\**\\*.html"
+    "source": "src/**/*.html"
   },
   "cssProcessor": {
     "id": "sass",
     "displayName": "Sass",
     "fileExtension": ".scss",
-    "source": "src\\**\\*.scss"
+    "source": [ "src/**/*.scss", "src/**/*.css" ],
+    "preCompiled": [ "scss/**/*.scss" ]
   },
   "editor": {
-    "id": "atom",
-    "displayName": "Atom"
+    "id": "vscode",
+    "displayName": "Visual Studio Code"
   },
   "unitTestRunner": {
     "id": "karma",
     "displayName": "Karma",
-    "source": "src\\**\\*.test.js",
-    "babelOptions": {
-      "presets": [ ],
-      "plugins": []
-    }
+    "source": "test/unit/**/*.js"
   },
   "paths": {
     "root": "src",
-    "resources": "src\\resources",
-    "elements": "src\\resources\\elements",
-    "attributes": "src\\resources\\attributes",
-    "valueConverters": "src\\resources\\value-converters",
-    "bindingBehaviors": "src\\resources\\binding-behaviors"
+    "resources": "src/resources",
+    "elements": "src/resources/elements",
+    "attributes": "src/resources/attributes",
+    "valueConverters": "src/resources/value-converters",
+    "bindingBehaviors": "src/resources/binding-behaviors"
   },
   "testFramework": {
     "id": "jasmine",
@@ -95,7 +92,7 @@
         "name": "vendor-bundle.js",
         "prepend": [
           "node_modules/bluebird/js/browser/bluebird.core.js",
-          "scripts/require.js"
+          "node_modules/requirejs/require.js"
         ],
         "dependencies": [
           "aurelia-binding",
@@ -119,10 +116,7 @@
           "aurelia-task-queue",
           "aurelia-templating",
           "aurelia-templating-binding",
-          {
-            "name": "text",
-            "path": "../scripts/text"
-          },
+          "text",
           {
             "name": "aurelia-templating-resources",
             "path": "../node_modules/aurelia-templating-resources/dist/amd",
